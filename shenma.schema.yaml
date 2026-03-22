@@ -1,0 +1,44 @@
+---
+schema:
+  schema_id: shenma
+  name: 神码
+  version: "1.0"
+  author:
+    - User
+  description: |
+    神码输入法自定义方案
+dependencies:
+  - punct
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - table_translator
+    - reverse_lookup_translator
+
+speller:
+  alphabet: "abcdefghijklmnopqrstuvwxyz"
+  delimiter: " '"
+
+translator:
+  dictionary: shenma
+  enable_charset_filter: false
+  enable_encoder: false
+  enable_sentence: false 
+  encode_commit_history: false
+...
