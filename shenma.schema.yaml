@@ -28,28 +28,23 @@ engine:
     - fallback_segmentor
   translators:
     - punct_translator
-    - script_translator
+    - script_translator        # <--- 已修改为支持拼写运算的引擎
     - reverse_lookup_translator
 
 speller:
-  alphabet: "abcdefghijklmnopqrstuvwxyz/"  # 1. 必须将 / 加入允许输入的字母表
+  alphabet: "abcdefghijklmnopqrstuvwxyz/"   # <--- 允许输入万能键 /
   delimiter: " '"
   max_code_length: 4
   auto_select: true
-  auto_select_pattern: "^[a-z/]{4}$"       # 2. 匹配规则加上 /，保证含万能键也能4码上屏
+  auto_select_pattern: "^[a-z/]{4}$"        # <--- 包含 / 的4码自动上屏
   auto_select_unique_candidate: true
-  algebra:
-    # --- 动态派生万能键规则 ---
-    # 替换 1 码字
+  algebra:                                  # <--- 万能键的灵魂：自动派生带 / 的各种组合
     - 'derive/^([a-z])$/\//'
-    # 替换 2 码字
     - 'derive/^([a-z])([a-z])$/\/$2/'
     - 'derive/^([a-z])([a-z])$/$1\//'
-    # 替换 3 码字
     - 'derive/^([a-z])([a-z])([a-z])$/\/$2$3/'
     - 'derive/^([a-z])([a-z])([a-z])$/$1\/$3/'
     - 'derive/^([a-z])([a-z])([a-z])$/$1$2\//'
-    # 替换 4 码字
     - 'derive/^([a-z])([a-z])([a-z])([a-z])$/\/$2$3$4/'
     - 'derive/^([a-z])([a-z])([a-z])([a-z])$/$1\/$3$4/'
     - 'derive/^([a-z])([a-z])([a-z])([a-z])$/$1$2\/$4/'
@@ -62,8 +57,8 @@ translator:
   enable_sentence: false 
   encode_commit_history: false
 
-recognizer:
+recognizer:                                 # <--- 将符号快捷键从 / 挪走，给万能键让路
   import_preset: default
   patterns:
-    punct: '^`([0-9]0?|[A-Za-z]+)$'  # 释放 / 键，将系统的符号快捷键改到 ` 上
+    punct: '^`([0-9]0?|[A-Za-z]+)$'
 ...
