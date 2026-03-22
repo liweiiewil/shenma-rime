@@ -28,7 +28,7 @@ engine:
     - fallback_segmentor
   translators:
     - punct_translator
-    - table_translator
+    - script_translator
     - reverse_lookup_translator
 
 speller:
@@ -61,4 +61,9 @@ translator:
   enable_encoder: false
   enable_sentence: false 
   encode_commit_history: false
+
+recognizer:
+  import_preset: default
+  patterns:
+    punct: '^`([0-9]0?|[A-Za-z]+)$'  # 释放 / 键，将系统的符号快捷键改到 ` 上
 ...
