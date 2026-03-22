@@ -56,6 +56,8 @@ translator:
   enable_encoder: false
   enable_sentence: false 
   encode_commit_history: false
+  enable_completion: false    # <--- 新增这一行，禁止显示不完整的编码匹配
+  enable_user_dict: false      # <--- 新增这一行，防止系统自动造词干扰
 
 recognizer:                                 # <--- 将符号快捷键从 / 挪走，给万能键让路
   import_preset: default
