@@ -36,6 +36,7 @@ speller:
   delimiter: " '"
   max_code_length: 4
   auto_select: true
+  auto_select_pattern: "^[a-z]{4}$"
   auto_select_unique_candidate: true
 
 translator:
