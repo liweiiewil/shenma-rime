@@ -34,6 +34,9 @@ engine:
 speller:
   alphabet: "abcdefghijklmnopqrstuvwxyz"
   delimiter: " '"
+  max_code_length: 4
+  auto_select: true
+  auto_select_unique_candidate: true
 
 translator:
   dictionary: shenma
