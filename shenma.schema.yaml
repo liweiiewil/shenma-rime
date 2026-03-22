@@ -6,8 +6,7 @@ schema:
   author:
     - User
   description: |
-    神码输入法自定义方案 - 恢复版
-    使用 ` 作为万能键
+    使用 ` 作为万能键，且仅显示4码匹配结果
 dependencies:
   - punct
 
@@ -29,16 +28,16 @@ engine:
     - fallback_segmentor
   translators:
     - punct_translator
-    - table_translator
+    - table_translator        # <--- 切回 table 引擎，解决显示“中、在”等碎片的问题
     - reverse_lookup_translator
 
 speller:
-  alphabet: "abcdefghijklmnopqrstuvwxyz`"
+  alphabet: "abcdefghijklmnopqrstuvwxyz`"  # <--- 将反引号加入可用字母表
   delimiter: " '"
   max_code_length: 4
   auto_select: true
-  auto_select_pattern: "^[a-z`]{4}$"
-  auto_select_unique_candidate: true
+  auto_select_pattern: "^[a-z`]{4}$"       # <--- 满4码（含万能键）自动上屏
+  # 下面是核心：定义 ` 为万能键，匹配 a-z 任意字符
   algebra:
     - derive/`/a/
     - derive/`/b/
@@ -73,15 +72,10 @@ translator:
   enable_encoder: false
   enable_sentence: false 
   encode_commit_history: false
-
-punctuator:
-  import_preset: default
-
-key_binder:
-  import_preset: default
+  enable_completion: false     # 进一步确保不显示未完成的编码
 
 recognizer:
   import_preset: default
   patterns:
-    punct: "^/.*$"
+    punct: "^/.*$"             # <--- 把原本占用 / 的功能移开，反之亦然
 ...
