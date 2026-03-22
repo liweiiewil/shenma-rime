@@ -32,12 +32,28 @@ engine:
     - reverse_lookup_translator
 
 speller:
-  alphabet: "abcdefghijklmnopqrstuvwxyz"
+  alphabet: "abcdefghijklmnopqrstuvwxyz/"  # 1. 必须将 / 加入允许输入的字母表
   delimiter: " '"
   max_code_length: 4
   auto_select: true
-  auto_select_pattern: "^[a-z]{4}$"
+  auto_select_pattern: "^[a-z/]{4}$"       # 2. 匹配规则加上 /，保证含万能键也能4码上屏
   auto_select_unique_candidate: true
+  algebra:
+    # --- 动态派生万能键规则 ---
+    # 替换 1 码字
+    - 'derive/^([a-z])$/\//'
+    # 替换 2 码字
+    - 'derive/^([a-z])([a-z])$/\/$2/'
+    - 'derive/^([a-z])([a-z])$/$1\//'
+    # 替换 3 码字
+    - 'derive/^([a-z])([a-z])([a-z])$/\/$2$3/'
+    - 'derive/^([a-z])([a-z])([a-z])$/$1\/$3/'
+    - 'derive/^([a-z])([a-z])([a-z])$/$1$2\//'
+    # 替换 4 码字
+    - 'derive/^([a-z])([a-z])([a-z])([a-z])$/\/$2$3$4/'
+    - 'derive/^([a-z])([a-z])([a-z])([a-z])$/$1\/$3$4/'
+    - 'derive/^([a-z])([a-z])([a-z])([a-z])$/$1$2\/$4/'
+    - 'derive/^([a-z])([a-z])([a-z])([a-z])$/$1$2$3\//'
 
 translator:
   dictionary: shenma
