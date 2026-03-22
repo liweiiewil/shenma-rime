@@ -73,12 +73,6 @@ translator:
   enable_sentence: false 
   encode_commit_history: false
 
-punctuator:
-  import_preset: default
-
-key_binder:
-  import_preset: default
-
 recognizer:
   import_preset: default
   patterns:
