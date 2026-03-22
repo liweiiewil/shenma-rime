@@ -1,12 +1,13 @@
 ---
 schema:
   schema_id: shenma
-  name: 沈码
-  version: "1.0"
+  name: 神码
+  version: "1.1"
   author:
     - User
   description: |
-    神码输入法自定义方案
+    神码输入法自定义方案 - 恢复版
+    使用 ` 作为万能键
 dependencies:
   - punct
 
@@ -32,39 +33,39 @@ engine:
     - reverse_lookup_translator
 
 speller:
-  alphabet: "abcdefghijklmnopqrstuvwxyz/"
+  alphabet: "abcdefghijklmnopqrstuvwxyz`"
   delimiter: " '"
   max_code_length: 4
   auto_select: true
-  auto_select_pattern: "^[a-z/]{4}$"
+  auto_select_pattern: "^[a-z`]{4}$"
   auto_select_unique_candidate: true
   algebra:
-    - 'derive/^([a-z/]{0,3})\/$/$1a/'
-    - 'derive/^([a-z/]{0,3})\/$/$1b/'
-    - 'derive/^([a-z/]{0,3})\/$/$1c/'
-    - 'derive/^([a-z/]{0,3})\/$/$1d/'
-    - 'derive/^([a-z/]{0,3})\/$/$1e/'
-    - 'derive/^([a-z/]{0,3})\/$/$1f/'
-    - 'derive/^([a-z/]{0,3})\/$/$1g/'
-    - 'derive/^([a-z/]{0,3})\/$/$1h/'
-    - 'derive/^([a-z/]{0,3})\/$/$1i/'
-    - 'derive/^([a-z/]{0,3})\/$/$1j/'
-    - 'derive/^([a-z/]{0,3})\/$/$1k/'
-    - 'derive/^([a-z/]{0,3})\/$/$1l/'
-    - 'derive/^([a-z/]{0,3})\/$/$1m/'
-    - 'derive/^([a-z/]{0,3})\/$/$1n/'
-    - 'derive/^([a-z/]{0,3})\/$/$1o/'
-    - 'derive/^([a-z/]{0,3})\/$/$1p/'
-    - 'derive/^([a-z/]{0,3})\/$/$1q/'
-    - 'derive/^([a-z/]{0,3})\/$/$1r/'
-    - 'derive/^([a-z/]{0,3})\/$/$1s/'
-    - 'derive/^([a-z/]{0,3})\/$/$1t/'
-    - 'derive/^([a-z/]{0,3})\/$/$1u/'
-    - 'derive/^([a-z/]{0,3})\/$/$1v/'
-    - 'derive/^([a-z/]{0,3})\/$/$1w/'
-    - 'derive/^([a-z/]{0,3})\/$/$1x/'
-    - 'derive/^([a-z/]{0,3})\/$/$1y/'
-    - 'derive/^([a-z/]{0,3})\/$/$1z/'
+    - derive/`/a/
+    - derive/`/b/
+    - derive/`/c/
+    - derive/`/d/
+    - derive/`/e/
+    - derive/`/f/
+    - derive/`/g/
+    - derive/`/h/
+    - derive/`/i/
+    - derive/`/j/
+    - derive/`/k/
+    - derive/`/l/
+    - derive/`/m/
+    - derive/`/n/
+    - derive/`/o/
+    - derive/`/p/
+    - derive/`/q/
+    - derive/`/r/
+    - derive/`/s/
+    - derive/`/t/
+    - derive/`/u/
+    - derive/`/v/
+    - derive/`/w/
+    - derive/`/x/
+    - derive/`/y/
+    - derive/`/z/
 
 translator:
   dictionary: shenma
@@ -72,6 +73,12 @@ translator:
   enable_encoder: false
   enable_sentence: false 
   encode_commit_history: false
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
 
 recognizer:
   import_preset: default
