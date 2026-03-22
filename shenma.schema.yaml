@@ -78,4 +78,16 @@ recognizer:
   import_preset: default
   patterns:
     punct: "^/.*$"             # <--- 把原本占用 / 的功能移开，反之亦然
+
+# 新增标点符号配置
+punctuator:
+  import_preset: default  # 导入 RIME 默认的中文标点方案
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+  patterns:
+    punct: "^/.*$"
 ...
