@@ -39,32 +39,32 @@ speller:
   auto_select_pattern: "^[a-z`]{4}$"       # <--- 满4码（含万能键）自动上屏
   # 下面是核心：定义 ` 为万能键，匹配 a-z 任意字符
   algebra:
-    - derive/`/a/
-    - derive/`/b/
-    - derive/`/c/
-    - derive/`/d/
-    - derive/`/e/
-    - derive/`/f/
-    - derive/`/g/
-    - derive/`/h/
-    - derive/`/i/
-    - derive/`/j/
-    - derive/`/k/
-    - derive/`/l/
-    - derive/`/m/
-    - derive/`/n/
-    - derive/`/o/
-    - derive/`/p/
-    - derive/`/q/
-    - derive/`/r/
-    - derive/`/s/
-    - derive/`/t/
-    - derive/`/u/
-    - derive/`/v/
-    - derive/`/w/
-    - derive/`/x/
-    - derive/`/y/
-    - derive/`/z/
+    - derive/a/`/
+    - derive/b/`/
+    - derive/c/`/
+    - derive/d/`/
+    - derive/e/`/
+    - derive/f/`/
+    - derive/g/`/
+    - derive/h/`/
+    - derive/i/`/
+    - derive/j/`/
+    - derive/k/`/
+    - derive/l/`/
+    - derive/m/`/
+    - derive/n/`/
+    - derive/o/`/
+    - derive/p/`/
+    - derive/q/`/
+    - derive/r/`/
+    - derive/s/`/
+    - derive/t/`/
+    - derive/u/`/
+    - derive/v/`/
+    - derive/w/`/
+    - derive/x/`/
+    - derive/y/`/
+    - derive/z/`/
 
 translator:
   dictionary: shenma
