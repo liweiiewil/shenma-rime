@@ -71,7 +71,7 @@ translator:
   enable_charset_filter: false
   enable_encoder: true
   enable_sentence: false
-  encode_commit_history: false
+  encode_commit_history: true
   encoder:
     rules:
       - length_equal: 2
