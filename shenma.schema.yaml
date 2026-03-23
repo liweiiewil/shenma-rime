@@ -69,9 +69,17 @@ speller:
 translator:
   dictionary: shenma
   enable_charset_filter: false
-  enable_encoder: false
-  enable_sentence: false 
+  enable_encoder: true
+  enable_sentence: false
   encode_commit_history: false
+  encoder:
+    rules:
+      - length_equal: 2
+        formula: "AaAbBaBb"    # 两字词：第1字前2码 + 第2字前2码
+      - length_equal: 3
+        formula: "AaAbBaCa"    # 三字词：第1字前2码 + 第2字首码 + 第3字首码
+      - length_in_range: [4, 20]
+        formula: "AaBaCaZa"    # 四字及以上：第1,2,3字首码 + 末字首码
   enable_completion: true      # 输入不足4码时也显示以已输入编码开头的候选
 
 punctuator:
