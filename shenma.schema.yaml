@@ -72,7 +72,7 @@ translator:
   enable_encoder: false
   enable_sentence: false 
   encode_commit_history: false
-  enable_completion: false     # 进一步确保不显示未完成的编码
+  enable_completion: true      # 输入不足4码时也显示以已输入编码开头的候选
 
 punctuator:
   import_preset: default
